@@ -1,0 +1,82 @@
+
+
+<!-- templates/branch.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ branch }} - Year {{ year }} - E-Learning Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        h1, h2, h3 { color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .subject-box { 
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        .subject-title { margin-top: 0; }
+        .btn {
+            padding: 8px 15px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .view-btn { background-color: #2196F3; }
+        .view-btn:hover { background-color: #0b7dda; }
+        .download-btn { background-color: #4CAF50; }
+        .download-btn:hover { background-color: #45a049; }
+        .header { 
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        .back-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .back-btn:hover { background-color: #d32f2f; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Engineering E-Learning Platform</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/admin">Admin Panel</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <a href="/" class="back-btn">Back to Home</a>
+        
+        <h2>Year {{ year }} - {{ branch }} Branch</h2>
+        
+        {% for subject in subjects %}
+        <div class="subject-box">
+            <h3 class="subject-title">{{ subject }}</h3>
+            <a href="/view/{{ year }}/{{ branch }}/{{ subject }}" class="btn view-btn">View E-Book</a>
+            <a href="/download/{{ year }}/{{ branch }}/{{ subject }}" class="btn download-btn">Download E-Book</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
